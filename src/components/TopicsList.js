@@ -22,18 +22,18 @@ const TopicsList = async() => {
   const {topics} = await getTopics();
   return (
   <>
-  {topics.map((t)=>(
+  {topics.map((link,index)=>(
 
  
-  <div className='p-4 my-3 border border-slate-600  flex justify-between gap-5 items-start '>
+  <div key={index}  className='p-4 my-3 border border-slate-600  flex justify-between gap-5 items-start '>
     <div>
 
-    <h2 className='font-bold text-2xl'>{t.title}</h2>
-    <div>{t.description}</div>
+    <h2 className='font-bold text-2xl'>{link.title}</h2>
+    <div>{link.description}</div>
     </div>
     <div className='flex gap-2'>
-      <Removebtn id={t._id} />
-      <Link href={`/editTopic/${t._id}`}>
+      <Removebtn id={link._id} />
+      <Link href={`/editTopic/${link._id}`}>
       <HiPencilAlt  size={24}/>
       </Link>
     </div>
